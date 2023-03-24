@@ -5,9 +5,8 @@
 | column                | type      | option                                 |
 |-----------------------|-----------|----------------------------------------|
 | nickname              | string    | null:false                             |
-| email                 | string    | null:false :unique                     |
-| password              | string    | null:false                             |
-| password_confirmation | string    | null:false                             |
+| email                 | string    | null:false unique: true                |
+| encrypted_password    | string    | null:false                             |
 | last_name             | string    | null:false                             |
 | first_name            | string    | null:false                             |
 | last_name_kana        | string    | null:false                             |
@@ -24,21 +23,18 @@
 | column                | type      | option                                 |
 |-----------------------|-----------|----------------------------------------|
 | item_mame             | string    | null:false                             |
-| image                 | text      | null:false                             |
+| description           | text      | null:false                             |
 | price                 | integer   | null:false                             |
-| category              | string    | null:false                             |
-| condition             | string    | null:false                             |
-| shipping_burden       | string    | null:false                             |
-| prefecture            | string    | null:false                             |
-| date_of_shipment      | string    | null:false                             |
+| category_id           | integer   | null:false                             |
+| condition_id          | integer   | null:false                             |
+| shipping_burden_id    | integer   | null:false                             |
+| prefecture_id         | integer   | null:false                             |
+| date_of_shipment      | integer   | null:false                             |
 | user                  |references | null:false,foreign_key:true            |
-|                       |           |                                        |
-|                       |           |                                        |
-|                       |           |                                        |
-|                       |           |                                        |
+
 
 -belongs_to : user
--has_one : purchases
+-has_one : purchase
 
 
 
@@ -51,7 +47,7 @@
 
 -belongs_to : user
 -belongs_to : item
--has_one : deliverys
+-has_one : delivery
 
 
 
@@ -60,14 +56,12 @@
 ## deliverys(配送先)テーブル
 | column                | type      | option                                 |
 |-----------------------|-----------|----------------------------------------|
-| post_code             | integer   | null:false                             |
+| post_code             | string    | null:false                             |
 | prefectur             | string    | null:false                             |
 | city                  | string    | null:false                             |
 | street_address        | string    | null:false                             |
 | building_name         | string    |                                        |
 | phone_number          | string    | null:false                             |
-| purchase              |references | null:false,foreign_key:true            |
-| user                  |references | null:false,foreign_key:true            |
+| prefecture_id         | integer   | null:false                             |
 
--belongs_to : user
 -belongs_to : purchase
