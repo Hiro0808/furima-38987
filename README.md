@@ -15,7 +15,6 @@
 
 -has_many : items
 -has_many : purchases
--has_one : deliverys
 
 
 ## itemsテーブル
@@ -29,7 +28,7 @@
 | condition_id          | integer   | null:false                             |
 | shipping_burden_id    | integer   | null:false                             |
 | prefecture_id         | integer   | null:false                             |
-| date_of_shipment      | integer   | null:false                             |
+| date_of_shipment_id   | integer   | null:false                             |
 | user                  |references | null:false,foreign_key:true            |
 
 
@@ -43,7 +42,6 @@
 |-----------------------|-----------|----------------------------------------|
 | user                  |references | null:false,foreign_key:true            |
 | item                  |references | null:false,foreign_key:true            |
-| delivery              |references | null:false,foreign_key:true            |
 
 -belongs_to : user
 -belongs_to : item
@@ -62,6 +60,5 @@
 | street_address        | string    | null:false                             |
 | building_name         | string    |                                        |
 | phone_number          | string    | null:false                             |
-| prefecture_id         | integer   | null:false                             |
 
 -belongs_to : purchase
