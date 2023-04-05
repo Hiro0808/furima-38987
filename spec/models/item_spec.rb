@@ -37,33 +37,33 @@ RSpec.describe @item, type: :model do
         expect(@item.errors.full_messages).to include("Image can't be blank")
       end
 
-      it 'category_idが「---」では登録できない' do
-        @item.category_id = '---'
+      it 'category_idが「1」では登録できない' do
+        @item.category_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
 
 
-      it 'condition_idが「---」では登録できない' do
-        @item.condition_id = '---'
+      it 'condition_idが「1」では登録できない' do
+        @item.condition_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include("Condition can't be blank")
       end
 
-      it 'shipping_burden_idが「---」では登録できない' do
-        @item.shipping_burden_id = '---'
+      it 'shipping_burden_idが「1」では登録できない' do
+        @item.shipping_burden_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping burden can't be blank")
       end
 
-      it 'prefecture_idが「---」では登録できない' do
-        @item.prefecture_id = '---'
+      it 'prefecture_idが「1」では登録できない' do
+        @item.prefecture_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
 
-      it 'date_of_shipment_idが「---」では登録できない' do
-        @item.date_of_shipment_id = '---'
+      it 'date_of_shipment_idが「1」では登録できない' do
+        @item.date_of_shipment_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include("Date of shipment can't be blank")
       end
