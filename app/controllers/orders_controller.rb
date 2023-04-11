@@ -1,9 +1,14 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
-    @purchase_delivery = PurchaseDelivery.new
     @item = Item.find(params[:item_id])
+    if @item.user != current_user && @item.purchase.nil?
+      @purchase_delivery = PurchaseDelivery.new
+    else
+      redirect_to root_path
+    end
   end
-
 
   def create
     @purchase_delivery = PurchaseDelivery.new(purchase_delivery_params)
