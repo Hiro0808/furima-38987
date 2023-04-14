@@ -89,20 +89,19 @@ RSpec.describe PurchaseDelivery, type: :model do
       it 'userが紐付いていないと保存できないこと' do
         @purchase_delivery.user_id = nil
         @purchase_delivery.valid?
-        binding.pry
-        expect(@purchase_delivery.errors.full_messages).to include("User can't be blank")
+        expect(@purchase_delivery.errors.full_messages).to include("Userを入力してください")
       end
 
       it 'itemが紐付いていないと保存できないこと' do
         @purchase_delivery.item_id = nil
         @purchase_delivery.valid?
-        expect(@purchase_delivery.errors.full_messages).to include("Item can't be blank")
+        expect(@purchase_delivery.errors.full_messages).to include("Itemを入力してください")
       end
 
       it "tokenが空では登録できないこと" do
         @purchase_delivery.token = nil
         @purchase_delivery.valid?
-        expect(@purchase_delivery.errors.full_messages).to include("Token can't be blank")
+        expect(@purchase_delivery.errors.full_messages).to include("クレジットカード情報入力を入力してください")
       end
     end
   end
